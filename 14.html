@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_14</title>
+  </head>
+  <body>
+	<div>
+		<input type="text" id="hrefInput" placeholder="Enter href">
+		<input type="text" id="textInput" placeholder="Enter text">
+		<button onclick="addListItem()">Add item</button>
+	</div>
+	<ul id="list">
+
+	</ul>
+	<script>
+		const initialState = {
+			hrefs: [
+				{href: '1.html', text: 'посилання 1'},
+				{href: '2.html', text: 'посилання 2'},
+				{href: '3.html', text: 'посилання 3'},
+			]
+		};
+
+
+		let state = Object.assign({}, initialState);
+
+
+		const list = document.getElementById('list');
+
+
+		function renderList() {
+
+			list.innerHTML = '';
+
+
+			for (const href of state.hrefs) {
+
+				const listItem = document.createElement('li');
+
+
+				const link = document.createElement('a');
+				link.href = href.href;
+				link.textContent = href.text;
+
+
+				listItem.appendChild(link);
+
+
+				const deleteButton = document.createElement('button');
+				deleteButton.textContent = 'Delete';
+				deleteButton.onclick = function() {
+					deleteListItem(listItem);
+				};
+				listItem.appendChild(deleteButton);
+
+
+				list.appendChild(listItem);
+			}
+		}
+
+
+		function addListItem() {
+
+			const hrefInput = document.getElementById('hrefInput');
+			const textInput = document.getElementById('textInput');
+			const href = hrefInput.value;
+			const text = textInput.value;
+
+
+			state.hrefs.push({href, text});
+
+
+			renderList();
+
+
+			hrefInput.value = '';
+			textInput.value = '';
+		}
+
+
+		function deleteListItem(listItem) {
+
+			const index = Array.prototype.indexOf.call(list.children, listItem);
+
+
+			state.hrefs.splice(index, 1);
+
+
+			renderList();
+		}
+		renderList();
+	</script>
+</body>
+</html>

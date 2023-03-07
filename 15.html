@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_15</title>
+  </head>
+  <body>
+	<h1>List of Items</h1>
+	<ul id="item-list">
+		<li>Item 1</li>
+		<li>Item 2</li>
+		<li>Item 3</li>
+		<li>Item 4</li>
+		<li>Item 5</li>
+	</ul>
+	<input type="text" id="item-number" placeholder="Enter item number to remove">
+	<button onclick="removeItem()">Remove Item</button>
+<script>
+	const itemList = document.getElementById("item-list");
+	const itemNumber = document.getElementById("item-number");
+
+	function removeItem() {
+		const index = parseInt(itemNumber.value) - 1;
+		if (index >= 0 && index < itemList.children.length) {
+			itemList.removeChild(itemList.children[index]);
+		}
+		itemNumber.value = "";
+	}
+</script>
+</body>
+</html>

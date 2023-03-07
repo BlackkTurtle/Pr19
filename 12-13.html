@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_12-13</title>
+  </head>
+  <body>
+	<h1>Список користувачів</h1>
+	<input type="text" id="nameInput">
+	<button onclick="addUser()">Додати користувача</button>
+	<ul id="userList">
+		<li>Іванов Іван Іванович <button onclick="deleteUser(this)">X</button></li>
+		<li>Петров Петро Петрович <button onclick="deleteUser(this)">X</button></li>
+		<li>Сидорова Олена Миколаївна <button onclick="deleteUser(this)">X</button></li>
+	</ul>
+	<script>
+		function addUser() {
+			let nameInput = document.getElementById('nameInput');
+			let userName = nameInput.value;
+			let userList = document.getElementById('userList');
+			let newUserItem = document.createElement('li');
+			let deleteButton = document.createElement('button');
+			deleteButton.innerHTML = 'X';
+			deleteButton.onclick = function () {
+				userList.removeChild(newUserItem);
+			}
+			newUserItem.innerHTML = userName;
+			newUserItem.appendChild(deleteButton);
+			userList.appendChild(newUserItem);
+			nameInput.value = '';
+		}
+		function deleteUser(button) {
+			let userList = document.getElementById('userList');
+			userList.removeChild(button.parentNode);
+		}
+	</script>
+</body>
+</html>

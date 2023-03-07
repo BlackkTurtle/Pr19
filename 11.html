@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_11</title>
+  </head>
+  <body>
+    <label>Ім'я: <input type="text" id="input-name"></label><br>
+    <label>Прізвище: <input type="text" id="input-surname"></label><br>
+    <label>По батькові: <input type="text" id="input-patronymic"></label><br>
+    <button onclick="showFullName()">Показати повне ПІБ</button>
+    <p id="full-name"></p>
+    <script>
+      function showFullName() {
+        var name = document.getElementById("input-name").value;
+        var surname = document.getElementById("input-surname").value;
+        var patronymic = document.getElementById("input-patronymic").value;
+        var fullName = surname + " " + name + " " + patronymic;
+        document.getElementById("full-name").innerHTML = fullName;
+      }
+    </script>
+  </body>
+</html>

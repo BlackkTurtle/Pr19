@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_10</title>
+  </head>
+  <body>
+    <label for="number1-input">Введіть число 1:</label>
+    <input type="number" id="number1-input">
+    <br>
+    <label for="number2-input">Введіть число 2:</label>
+    <input type="number" id="number2-input">
+    <br>
+    <button id="calculate-button">Обчислити суму</button>
+    <p id="output"></p>
+  
+    <script>
+      const number1Input = document.getElementById("number1-input");
+      const number2Input = document.getElementById("number2-input");
+      const calculateButton = document.getElementById("calculate-button");
+      const output = document.getElementById("output");
+  
+      calculateButton.addEventListener("click", () => {
+        const number1 = parseFloat(number1Input.value);
+        const number2 = parseFloat(number2Input.value);
+        const sum = number1 + number2;
+        output.innerText = `Сума чисел: ${sum}`;
+      });
+    </script>
+  </body>
+</html>

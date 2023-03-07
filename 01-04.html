@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_01-04</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+      import React, { useState } from 'react';
+      import ReactDOM from 'react-dom';
+
+      function App() {
+        const [names, setNames] = useState([
+          { id: 1, name: 'Коля' },
+          { id: 2, name: 'Василь' },
+          { id: 3, name: 'Петро' },
+          { id: 4, name: 'Іван' },
+          { id: 5, name: 'Дмитро' },
+        ]);
+
+        const handleRemove = (id) => {
+          setNames(names.filter((name) => name.id !== id));
+        };
+
+        return (
+          <ul>
+            {names.map((name) => (
+              <li key={name.id}>
+                {name.name}
+                <button onClick={() => handleRemove(name.id)}>Видалити</button>
+              </li>
+            ))}
+          </ul>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
+

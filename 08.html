@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_08</title>
+  </head>
+  <body>
+    <label for="fullname-input">Введіть ваше ПІБ:</label>
+    <input type="text" id="fullname-input">
+    <p id="lastname-output"></p>
+    <p id="firstname-output"></p>
+    <p id="middlename-output"></p>
+  
+    <script>
+      const fullnameInput = document.getElementById("fullname-input");
+      const lastnameOutput = document.getElementById("lastname-output");
+      const firstnameOutput = document.getElementById("firstname-output");
+      const middlenameOutput = document.getElementById("middlename-output");
+  
+      fullnameInput.addEventListener("input", () => {
+        const fullname = fullnameInput.value.trim();
+        const names = fullname.split(" ");
+        if (names.length === 1) {
+          lastnameOutput.innerText = names[0];
+          firstnameOutput.innerText = "";
+          middlenameOutput.innerText = "";
+        } else if (names.length === 2) {
+          lastnameOutput.innerText = names[0];
+          firstnameOutput.innerText = names[1];
+          middlenameOutput.innerText = "";
+        } else if (names.length === 3) {
+          lastnameOutput.innerText = names[0];
+          firstnameOutput.innerText = names[1];
+          middlenameOutput.innerText = names[2];
+        } else {
+          lastnameOutput.innerText = "";
+          firstnameOutput.innerText = "";
+          middlenameOutput.innerText = "";
+        }
+      });
+    </script>
+  </body>
+</html>

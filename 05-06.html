@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_05-06</title>
+  </head>
+  <body>
+    <input type="text" id="input-text">
+    <p id="output-text"></p>
+  
+    <script>
+      const inputText = document.getElementById("input-text");
+      const outputText = document.getElementById("output-text");
+  
+      inputText.addEventListener("input", () => {
+        outputText.innerText = inputText.value.toUpperCase();
+      });
+    </script>
+  </body>
+</html>

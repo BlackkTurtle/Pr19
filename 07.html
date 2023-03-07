@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_07</title>
+  </head>
+  <body>
+    <label for="age-input">Введіть ваш вік:</label>
+    <input type="text" id="age-input">
+    <p id="birth-year"></p>
+  
+    <script>
+      const ageInput = document.getElementById("age-input");
+      const birthYearOutput = document.getElementById("birth-year");
+  
+      ageInput.addEventListener("input", () => {
+        const age = parseInt(ageInput.value);
+        const currentYear = new Date().getFullYear();
+        const birthYear = currentYear - age;
+        birthYearOutput.innerText = `Ваш рік народження: ${birthYear}`;
+      });
+    </script>
+  </body>
+</html>

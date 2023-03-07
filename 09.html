@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Практична_робота-19_09</title>
+  </head>
+  <body>
+    <label for="text-input">Введіть текст:</label>
+    <input type="text" id="text-input">
+    <button id="submit-button">Вивести</button>
+    <p id="output"></p>
+  
+    <script>
+      const textInput = document.getElementById("text-input");
+      const submitButton = document.getElementById("submit-button");
+      const output = document.getElementById("output");
+  
+      submitButton.addEventListener("click", () => {
+        const text = textInput.value.trim();
+        output.innerText = text;
+      });
+    </script>
+  </body>
+</html>
